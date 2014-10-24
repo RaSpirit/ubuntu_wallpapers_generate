@@ -43,7 +43,7 @@ cat >$xmlBG <<XML
 XML
 
 
-for file in $sourcePath/*.jpg; do
+for file in $(find $sourcePath -regextype posix-extended -regex ".+\.(jpe?g|JPE?G|png|PNG)" | sort -R); do
 	if [ $fileprev ]; then
 	cat >>$xmlConfig<<XML
   <wallpaper>
